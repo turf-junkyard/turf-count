@@ -17,6 +17,7 @@ test('count', function(t){
 
   var counted = count(polyFC, ptFC, 'pt_count')
 
+  console.log(counted.features.map(function(f){return f.properties.pt_count}))
   t.equal(counted.features[0].geometry.type, 'Polygon')
   t.equal(counted.features[0].properties.pt_count, 2)
   t.equal(counted.features[1].properties.pt_count, 3)
