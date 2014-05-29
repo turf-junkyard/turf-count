@@ -3,8 +3,10 @@ var test = require('tape')
 var polygon = require('turf-polygon')
 var point = require('turf-point')
 var featurecollection =  require('turf-featurecollection')
+var deepFreeze =  require('deep-freeze')
 
 test('count', function(t){
+  'use strict';
   var poly1 = polygon([[[0,0],[10,0],[10,10], [0,10]]])
   var poly2 = polygon([[[10,0],[20,10],[20,20], [20,0]]])
   var polyFC = featurecollection([poly1, poly2])
@@ -14,6 +16,8 @@ test('count', function(t){
   var pt4 = point(13,1, {population: 200})
   var pt5 = point(19,7, {population: 300})
   var ptFC = featurecollection([pt1, pt2, pt3, pt4, pt5])
+  deepFreeze(ptFC)
+  deepFreeze(polyFC)
 
   var counted = count(polyFC, ptFC, 'pt_count')
 

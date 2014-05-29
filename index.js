@@ -8,7 +8,7 @@ module.exports = function(polyFC, ptFC, outField, done){
     var values = []
     ptFC.features.forEach(function(pt){
       if (inside(pt, poly)) {
-        values.push(1)   
+        values.push(1)
       }
     })
     poly.properties[outField] = values.length
