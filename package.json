@@ -24,13 +24,13 @@
   },
   "homepage": "https://github.com/morganherlocker/turf-count",
   "devDependencies": {
-    "tape": "^2.13.1",
+    "tape": "^2.13.3",
     "turf-featurecollection": "^0.1.0",
-    "turf-point": "^0.1.0",
-    "turf-polygon": "^0.1.0",
+    "turf-point": "^0.1.1",
+    "turf-polygon": "^0.1.1",
     "deep-freeze": "0.0.1"
   },
   "dependencies": {
-    "turf-inside": "^0.1.1"
+    "turf-inside": "^0.1.3"
   }
 }
