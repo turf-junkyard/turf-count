@@ -4,6 +4,28 @@ turf-count
 
 Calculates the number of points that fall within a set of polygons.
 
+###Install
+
+```sh
+npm install turf-count
+```
+
+###Parameters
+
+|name|description|
+|---|---|
+|polyFC|a FeatureCollection of polygons|
+|pointFC|a FeatureCollection of points|
+|countField|field to append to the polygon features representing point counts|
+
+###Usage
+
+```js
+count(polyFC, pointFC, countField)
+```
+
+###Example
+
 ```js
 var point = require('turf-point')
 var polygon = require('turf-polygon')
