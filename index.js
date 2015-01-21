@@ -24,8 +24,8 @@ var inside = require('turf-inside');
  *  [-112.023983,46.570426]
  * ]]);
  * var polyFC = turf.featurecollection([poly1, poly2]);
- * var pt1 = turf.point(-112.0372, 46.608058, {population: 200});
- * var pt2 = turf.point(-112.045955, 46.596264,
+ * var pt1 = turf.point([-112.0372, 46.608058], {population: 200});
+ * var pt2 = turf.point([-112.045955, 46.596264],
  *  {population: 600});
  * var ptFC = turf.featurecollection([pt1, pt2]);
  *
