@@ -1,44 +1,68 @@
-turf-count
-==========
-[![Build Status](https://travis-ci.org/Turfjs/turf-count.svg)](https://travis-ci.org/Turfjs/turf-count)
+# turf-count
 
-Calculates the number of points that fall within a set of polygons.
+[![build status](https://secure.travis-ci.org/Turfjs/turf-count.png)](http://travis-ci.org/Turfjs/turf-count)
 
-###Install
+turf count module
+
+
+### `turf.count(polygons, points, countField)`
+
+Takes a FeatureCollection of Point features and a FeatureCollection of Polygon features and calculates the number of points that fall within the set of polygons.
+
+
+### Parameters
+
+| parameter    | type              | description                                                                           |
+| ------------ | ----------------- | ------------------------------------------------------------------------------------- |
+| `polygons`   | FeatureCollection | a FeatureCollection of Polygon features                                               |
+| `points`     | FeatureCollection | a FeatureCollection of Point features                                                 |
+| `countField` | String            | a field to append to the attributes of the Polygon features representing Point counts |
+
+
+### Example
+
+```js
+var polygons = turf.featurecollection([
+ turf.polygon([[
+   [-112.072391,46.586591],
+   [-112.072391,46.61761],
+   [-112.028102,46.61761],
+   [-112.028102,46.586591],
+   [-112.072391,46.586591]
+ ]]),
+ turf.polygon([[
+   [-112.023983,46.570426],
+   [-112.023983,46.615016],
+   [-111.966133,46.615016],
+   [-111.966133,46.570426],
+   [-112.023983,46.570426]
+ ]])
+]);
+var points = turf.featurecollection([
+ turf.point([-112.0372, 46.608058], {population: 200}),
+ turf.point([-112.045955, 46.596264],
+   {population: 600})
+]);
+
+var counted = turf.count(polygons, points, 'pt_count');
+
+var result = turf.featurecollection(
+  points.features.concat(counted.features));
+
+//=result
+```
+
+## Installation
+
+Requires [nodejs](http://nodejs.org/).
 
 ```sh
-npm install turf-count
+$ npm install turf-count
 ```
 
-###Parameters
+## Tests
 
-|name|description|
-|---|---|
-|polyFC|a FeatureCollection of polygons|
-|pointFC|a FeatureCollection of points|
-|countField|field to append to the polygon features representing point counts|
-
-###Usage
-
-```js
-count(polyFC, pointFC, countField)
+```sh
+$ npm test
 ```
 
-###Example
-
-```js
-var point = require('turf-point')
-var polygon = require('turf-polygon')
-var featurecollection = require('turf-featurecollection')
-
-var poly1 = polygon([[[0,0],[10,0],[10,10], [0,10]]])
-var poly2 = polygon([[[10,0],[20,10],[20,20], [20,0]]])
-var polyFC = featurecollection([poly1, poly2])
-var pt1 = point(5,5, {population: 200})
-var pt2 = point(1,3, {population: 600})
-var ptFC = featurecollection([pt1, pt2])
-
-var counted = count(polyFC, ptFC, 'pt_count')
-
-console.log(counted)
-```
