@@ -4,6 +4,7 @@ var inside = require('turf-inside');
  * Takes a {@link FeatureCollection} of {@link Point} features and a {@link FeatureCollection} of {@link Polygon} features and calculates the number of points that fall within the set of polygons.
  *
  * @module turf/count
+ * @category aggregation
  * @param {FeatureCollection} polygons a FeatureCollection of {@link Polygon} features
  * @param {FeatureCollection} points a FeatureCollection of {@link Point} features
  * @param {String} countField a field to append to the attributes of the Polygon features representing Point counts
