@@ -27,12 +27,12 @@
   "devDependencies": {
     "benchmark": "^1.0.0",
     "deep-freeze": "0.0.1",
-    "tape": "^3.0.3",
+    "tape": "^3.5.0",
     "turf-featurecollection": "^1.0.0",
     "turf-point": "^2.0.0",
-    "turf-polygon": "^1.0.1",
+    "turf-polygon": "^1.0.2",
     "dox": "^0.6.1",
-    "doxme": "^1.4.2"
+    "doxme": "^1.4.3"
   },
   "dependencies": {
     "turf-inside": "^1.1.3"
